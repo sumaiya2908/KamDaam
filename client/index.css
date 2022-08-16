@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body, html {
+    height: 100%;
+    margin: 0;
+    background-color: #F2F5F8;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    margin: 0 2.5rem;
+    padding: 1rem 0 0.9rem;
+}
+
+@layer components {
+    .input-box {
+        @apply indent-4 w-1/2 outline outline-1 outline-gray-300 p-1 rounded-sm focus:outline-2
+    }
+}
+
+.product-container {
+    height: 250px;
+    width: 180px;
+}
+.product-image {
+    width: 100%;
+    height: 60%;
+    object-fit: contain;
+    display: inline-block;
+}
