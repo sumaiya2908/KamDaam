@@ -1,5 +1,6 @@
 //logo
 import Logo from './logo.svg'
+import LogoGray from './logo-gray-bg.svg'
 
 //Icons
 import SearchIcon from './icons/search.svg';
@@ -10,4 +11,4 @@ import StarIcon from './icons/star.svg';
 //images
 import TestImage from './test-images/test-image2.png';
 
-export {Logo, SearchIcon, CartIcon, AccountIcon, StarIcon, TestImage};
+export {Logo, LogoGray, SearchIcon, CartIcon, AccountIcon, StarIcon, TestImage};
