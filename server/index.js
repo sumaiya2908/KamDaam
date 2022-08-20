@@ -15,6 +15,11 @@ connection.once('open', () => {
 const ProductModel = require('./models/Product')
 const UserModel = require('./models/User')
 
+const UserRoute = require('./routes/User')
+
+app.use(express.json())
+app.use('/user', UserRoute )
+
 app.listen(3000, () => {
     console.log('Server started at port 3000')
 })
