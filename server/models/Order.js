@@ -58,7 +58,7 @@ const OrderSchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        enum: ["completed", "pending", "on the way", "returned", "cancelled"]
+        enum: ["placed", "completed", "pending", "on the way", "returned", "cancelled"]
     },
     rate: {
         type: Number,
