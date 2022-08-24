@@ -8,7 +8,7 @@ router.get('/all', (req, res) => {
     })
 })
 
-router.post('/add-order', (req, res) => {
+router.post('/add', (req, res) => {
     const NewOrder = new Order({
         orderItem: req.body.items,
         address: req.body.address,
