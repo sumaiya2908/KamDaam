@@ -12,12 +12,10 @@ connection.once('open', () => {
     console.log("MongoDB database connection established successfully");
 })
 
-const UserRoute = require('./routes/User');
-const ProductRoute = require('./routes/Product');
+const route = require('./routes/index')
 
 app.use(express.json())
-app.use('/user', UserRoute )
-app.use('/product', ProductRoute)
+app.use(route)
 
 app.listen(3000, () => {
     console.log('Server started at port 3000')
