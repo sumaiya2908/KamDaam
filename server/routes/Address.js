@@ -47,3 +47,5 @@ router.delete('/delete/:id', (req, res) => {
         res.send("Address deleted successfully")
     })
 })
+
+module.exports = router;
