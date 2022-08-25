@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+const cors = require('cors')
 
 require('dotenv').config();
 
@@ -15,6 +16,7 @@ connection.once('open', () => {
 const route = require('./routes/index')
 
 app.use(express.json())
+app.use(cors())
 app.use(route)
 
 app.listen(3000, () => {
