@@ -14,6 +14,10 @@ const ProductSchema = new mongoose.Schema({
     imageUrl: {
         type: String
     },
+    category: {
+        type: String,
+        enum: ['men', 'women', 'children']
+    },
     rating: {
         type: Number,
         default: 0
