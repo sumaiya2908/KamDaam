@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function Signup() {
+	const [name, setName] = useState('');
+	const [password, setPassword] = useState('')
+	const [email, setEmail] = useState('')
+	const [confirmPassword, setConfirmPassword] = useState('')
 
 	const handleSignup = () => {
 
