@@ -6,8 +6,10 @@ function Signup() {
 	const [email, setEmail] = useState('')
 	const [confirmPassword, setConfirmPassword] = useState('')
 
-	const handleSignup = () => {
-
+	const handleSignup = (e) => {
+		if (password != confirmPassword) {
+			console.log("passwords do not match")
+		}
 	}
 	return (
 		<div className="outer-container w-full h-screen bg-primary flex justify-center items-center rounded drop-shadow-md">
