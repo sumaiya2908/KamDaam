@@ -22,7 +22,7 @@ function Login() {
 		if (error) {
 
 		}
-	},[error, loading, userInfo])
+	}, [error, loading, userInfo])
 
 	return (
 		<div className="outer-container w-full h-screen bg-primary flex justify-center items-center rounded drop-shadow-md">
@@ -36,7 +36,7 @@ function Login() {
 					<input className='input-field' type="email" onChange={(e) => setEmail(e.target.value)} required />
 					<label className="form-label">Password</label>
 					<input className='input-field' type="password" onChange={(e) => setPassword(e.target.value)} required />
-					<button type='submit' className='bg-secondary text-white p-1 hover:bg-blue-600 rounded mt-2 mb-4'>{loading? 'loading' : 'Login'}</button>
+					<button type='submit' className='bg-secondary text-white p-1 hover:bg-blue-600 rounded mt-2 mb-4'>{loading ? 'loading' : 'Login'}</button>
 					<span className='text-sm sign-up-text w-full text-gray-600 text-center'>Don't have an account? <a className='text-secondary' href='/sign-up'>Create account.</a></span>
 				</form>
 			</div>
