@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import {useNavigate} from 'react-router-dom'
 
 import { Logo, Loader } from '../../../public/images';
 import { login } from '../../../store/user'
@@ -8,9 +9,11 @@ function Login() {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 
-	const { userInfo, error, loading } = useSelector((state) => state.user)
+	const { userInfo, error, loading, success } = useSelector((state) => state.user)
 
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
+
 
 	const handleLogin = (e) => {
 		e.preventDefault();
@@ -19,9 +22,10 @@ function Login() {
 	}
 
 	useEffect(() => {
-		if (error) {
-
+		if (success) {
+			navigate('/')
 		}
+
 	}, [error, loading, userInfo])
 
 	return (
@@ -36,7 +40,7 @@ function Login() {
 					<input className='input-field' type="email" onChange={(e) => setEmail(e.target.value)} required />
 					<label className="form-label">Password</label>
 					<input className='input-field' type="password" onChange={(e) => setPassword(e.target.value)} required />
-					<button type='submit' className='bg-secondary text-center text-white p-1 hover:bg-blue-600 rounded mt-2 mb-4'><Loader/></button>
+					<button type='submit' className='bg-secondary text-center text-white p-1 hover:bg-blue-600 rounded mt-2 mb-4'>{loading?<Loader/>: 'Login'}</button>
 					<span className='text-sm sign-up-text w-full text-gray-600 text-center'>Don't have an account? <a className='text-secondary' href='/sign-up'>Create account.</a></span>
 				</form>
 			</div>
