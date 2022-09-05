@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Logo } from '../../../public/images';
+import { Logo, Loader } from '../../../public/images';
 import { login } from '../../../store/user'
 
 function Login() {
@@ -36,7 +36,7 @@ function Login() {
 					<input className='input-field' type="email" onChange={(e) => setEmail(e.target.value)} required />
 					<label className="form-label">Password</label>
 					<input className='input-field' type="password" onChange={(e) => setPassword(e.target.value)} required />
-					<button type='submit' className='bg-secondary text-white p-1 hover:bg-blue-600 rounded mt-2 mb-4'>{loading ? 'loading' : 'Login'}</button>
+					<button type='submit' className='bg-secondary text-center text-white p-1 hover:bg-blue-600 rounded mt-2 mb-4'><Loader/></button>
 					<span className='text-sm sign-up-text w-full text-gray-600 text-center'>Don't have an account? <a className='text-secondary' href='/sign-up'>Create account.</a></span>
 				</form>
 			</div>
