@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {useNavigate} from 'react-router-dom'
 
-import { Logo, Loader } from '../../../public/images';
-import { login } from '../../../store/user'
+import { Logo, Loader } from '../../public/images';
+import { login } from '../../store/user'
 
 function Login() {
 	const [email, setEmail] = useState('')
