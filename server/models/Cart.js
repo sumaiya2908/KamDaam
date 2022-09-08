@@ -15,15 +15,11 @@ const ItemSchema = new mongoose.Schema({
     },
     quantity: {
         type: Number,
-        default: 0
+        default: 1
     },
     product: {
         type: ObjectId,
         ref: 'product'
-    },
-    quatity: {
-        type: Number,
-        default: 0
     },
     rate: {
         type: Number,
@@ -33,16 +29,12 @@ const ItemSchema = new mongoose.Schema({
 
 const CartSchema = new mongoose.Schema({
     cartItem: [ItemSchema],
-    rate: {
-        type: Number,
-        default: 0
-    },
     user: {
         type: ObjectId,
         ref: 'user'
     }
 })
 
-const CartModel = new mongoose.model('cart', CartSchema);
+const Cart = new mongoose.model('cart', CartSchema);
 
-module.exports = {ItemSchema, CartModel}
+module.exports = {ItemSchema, Cart}
