@@ -1,8 +1,8 @@
 import React from "react";
-import HomeScreen from "./Screens/HomeScreen/HomeScreen";
+import HomeScreen from "./Screens/HomeScreen";
 import { Route, Routes, BrowserRouter } from 'react-router-dom'
-import Login from "./Screens/LoginScreen/Login";
-import Signup from "./Screens/LoginScreen/Signup";
+import Login from "./Screens/Login";
+import Signup from "./Screens/Signup";
 
 const App = () => {
     return (
