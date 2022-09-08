@@ -1,50 +1,8 @@
 const mongoose = require('mongoose')
 const { ObjectId } =  mongoose.Schema
 
-const {AddressSchema} = require('./Address')
-
-const ItemSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true
-    },
-    price: {
-        type: Number,
-        default: 0
-    },
-    imageUrl: {
-        type: String
-    },
-    quantity: {
-        type: Number,
-        default: 0
-    },
-    product: {
-        type: ObjectId,
-        ref: 'product'
-    },
-    quatity: {
-        type: Number,
-        default: 0
-    },
-    rate: {
-        type: Number,
-        default: 0
-    }
-})
-
-
-const CartSchema = new mongoose.Schema({
-    cartItem: [ItemSchema],
-    rate: {
-        type: Number,
-        default: 0
-    },
-    user: {
-        type: ObjectId,
-        ref: 'user'
-    }
-})
+const {AddressSchema} = require('./Address');
+const {ItemSchema} = require('./Cart');
 
 const OrderSchema = new mongoose.Schema({
     orderItem: [ItemSchema],
