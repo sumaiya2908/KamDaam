@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
 	Logo,
 	SearchIcon,
@@ -17,8 +18,8 @@ function Navbar() {
 				<input type="text" className="input-search-box" placeholder="Search...." />
 			</div>
 			<div className="nav-items flex">
-				<CartIcon className="mr-8"/>
-				<AccountIcon />
+				<Link to="/cart"><CartIcon className="mr-8"/></Link>
+				<Link to="/user-profile"><AccountIcon /></Link>
 			</div>
 		</div>
 		</div>
