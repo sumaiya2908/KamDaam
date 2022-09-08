@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { signin } from '../../../store/user';
-import { Loader, Logo } from '../../../public/images';
+import { signin } from '../../store/user';
+import { Loader, Logo } from '../../public/images';
 
 function Signup() {
 	const [name, setName] = useState('');

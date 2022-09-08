@@ -1,6 +1,6 @@
 import React from "react";
-import Navbar from "./Navbar";
-import Products from "./Products";
+import Navbar from "../Components/Navbar";
+import Products from "../Components/Products";
 
 function HomeScreen() {
 	return (
