@@ -2,15 +2,11 @@ const jwt = require('jsonwebtoken');
 
 const getToken = (user) => {
     return jwt.sign({
-        _id: user.id,
-        name: user.name,
-        email: user.email,
-        isAdmin: user.isAdmin
+        userID: user._id,
+        userEmail: user.email
     },
         process.env.JWT_TOKEN,
-        {
-            expiresIn: '24h',
-        }
+        { expiresIn: '24h' }
     )
 }
 
@@ -31,4 +27,12 @@ const isAuth = (req, res, next) => {
     }
 }
 
-module.exports = {getToken, isAuth}
+const isAdmin = (req, res, next) => {
+    console.log(req.user);
+    if (req.user && req.user.isAdmin) {
+        return next();
+    }
+    return res.status(401).send({ message: 'Admin Token is not valid.' });
+};
+
+module.exports = { getToken, isAuth, isAdmin }
