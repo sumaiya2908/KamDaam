@@ -1,20 +1,34 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
 
-const UserModel = require('../models/User');
-const getToken = require('../utils');
+const User = require('../models/User');
+const {getToken, isAdmin, isAuth} = require('../utils/authentication');
+
+router.get('/all', isAdmin, (req, res) => {
+    User.find({}).then(function (users) {
+        res.send(users)
+    })
+})
+
+router.put('/:id', isAuth, (req, res) => {
+    User.findByIdAndUpdate(req.params.id, req.body.user, (err, doc) => {
+        if (err) res.send("Product cannot be updated", err)
+        const token = getToken(doc)
+        res.send({message: 'User Updated', token: token})
+    })
+})
 
 router.post('/register', (req, res) => {
     bcrypt.hash(req.body.password, 10)
         .then((hashedPassword) => {
-            const user = new UserModel({
+            const user = new User({
                 name: req.body.name,
                 email: req.body.email,
                 password: hashedPassword
             });
             user.save()
                 .then((result) => {
-                    res.send("User registration successfull")
+                    res.send({message: "User registration successfull",token: getToken(result)})
                 })
                 .catch((err) => {
                     res.send("Error creating user")
@@ -26,7 +40,7 @@ router.post('/register', (req, res) => {
 })
 
 router.post('/login', (req, res) => {
-    UserModel.findOne({ email: req.body.email })
+    User.findOne({ email: req.body.email })
         .then((user) => {
             bcrypt.compare(req.body.password, user.password)
                 .then((correctPassword) => {
