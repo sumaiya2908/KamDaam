@@ -5,6 +5,7 @@ import Login from "./Screens/Login";
 import Signup from "./Screens/Signup";
 import CartScreen from "./Screens/CartScreen";
 import UserProfile from "./Screens/UserProfile";
+import UserList from "./Admin/UserList";
 
 const App = () => {
     return (
@@ -15,6 +16,8 @@ const App = () => {
                 <Route path="/sign-up" element={<Signup/>}></Route>
                 <Route path="/cart" element={<CartScreen/>}></Route>
                 <Route path="/user-profile" element={<UserProfile/>}></Route>
+                <Route path="/admin/userlist" element={<UserList/>}></Route>
+                    
             </Routes>
         </BrowserRouter>
     )
