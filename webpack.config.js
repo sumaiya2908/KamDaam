@@ -13,7 +13,7 @@ module.exports={
     /** "entry"
      * the entry point 
      */
-    entry: "./index.js", 
+    entry: "./client/index.js", 
     output: {
         /** "path"
          * the folder path of the output file 
@@ -39,7 +39,8 @@ module.exports={
         /** "static" 
          * This property tells Webpack what static file it should serve
         */
-        static: ["./public"],
+        static: ["./client/public"],
+        // comst a = require('./client/public')
         /** "open" 
          * opens the browser after server is successfully started
         */
@@ -96,7 +97,7 @@ module.exports={
     },
     plugins: [
         new HtmlWebpackPlugin({
-          template: './public/index.html'
+          template: './client/public/index.html'
         })
       ]
 }
