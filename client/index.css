@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 body, html {
+    background-color: #F2F5F8;
+    box-sizing: border-box;
     height: 100%;
     margin: 0;
-    background-color: #F2F5F8;
     padding: 0;
-    box-sizing: border-box;
 }
 
 .container {
@@ -17,7 +17,7 @@ body, html {
 
 @layer components {
     .input-search-box {
-        @apply indent-4 w-1/2 outline outline-1 outline-gray-300 p-1 rounded-sm focus:outline-2
+        @apply indent-4 w-1/2 outline outline-1 outline-gray-300 p-1 rounded-sm focus:outline-2 focus:bg-gray-200 focus:outline-0
     }
 
     .input-field {
@@ -30,19 +30,19 @@ body, html {
 }
 
 .login-form-container {
-    width: 32%;
-    height: max-content;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    height: max-content;
+    width: 32%;
 }
 .product-container {
     height: max-content;
     width: 200px;
 }
 .product-image {
-    width: 100%;
+    display: inline-block;
     height: 170px;
     object-fit: contain;
-    display: inline-block;
+    width: 100%;
 }
 
 .form-logo {
