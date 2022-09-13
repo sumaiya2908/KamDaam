@@ -2,9 +2,9 @@ const router = require('express').Router();
 const bcrypt = require('bcrypt');
 
 const User = require('../models/User');
-const {getToken, isAdmin, isAuth} = require('../utils/authentication');
+const { getToken, isAdmin, isAuth } = require('../utils/auth');
 
-router.get('/all', isAdmin, (req, res) => {
+router.get('/all', isAuth, isAdmin, (req, res) => {
     User.find({}).then(function (users) {
         res.send(users)
     })
@@ -14,7 +14,7 @@ router.put('/:id', isAuth, (req, res) => {
     User.findByIdAndUpdate(req.params.id, req.body.user, (err, doc) => {
         if (err) res.send("Product cannot be updated", err)
         const token = getToken(doc)
-        res.send({message: 'User Updated', token: token})
+        res.send({ message: 'User Updated', token: token })
     })
 })
 
@@ -24,11 +24,12 @@ router.post('/register', (req, res) => {
             const user = new User({
                 name: req.body.name,
                 email: req.body.email,
-                password: hashedPassword
+                password: hashedPassword,
+                isAdmin: req.body.isAdmin || false
             });
             user.save()
                 .then((result) => {
-                    res.send({message: "User registration successfull",token: getToken(result)})
+                    res.send({ message: "User registration successfull", token: getToken(result) })
                 })
                 .catch((err) => {
                     res.send("Error creating user")
