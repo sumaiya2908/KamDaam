@@ -10,6 +10,6 @@ import StarIcon from './icons/star.svg';
 import Loader from './icons/loader.svg'
 
 //images
-import TestImage from './test-images/test-image2.png';
+import TestImage from './test-images/usb-1.jpeg'
 
 export {Logo, LogoGray, SearchIcon, CartIcon, AccountIcon, StarIcon, Loader, TestImage};
