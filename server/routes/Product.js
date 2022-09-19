@@ -1,8 +1,6 @@
 const router = require('express').Router();
-const multer = require('multer')
 
 const Product = require('../models/Product');
-
 const upload = require('../utils/upload')
 const { isAdmin, isAuth } = require('../utils/auth')
 
@@ -54,24 +52,5 @@ router.delete('/delete/:id', isAuth, isAdmin, (req, res) => {
         res.send("Product deleted successfull")
     })
 })
-
-router.post('/add-many', (req, res) => {
-    Product.insertMany([req.products])
-    .then(() => {
-        res.send('Products inserted');
-        
-    })
-    .catch((err) => {
-        res.send('Couldnot insert products', err)
-    })
-})
-
-router.post('/image', singleUpload, (req, res) => {
-    console.log(req.file)
-    res.send({
-        data: req.file,
-        msg: 'Successfully uploaded ' + req.file + ' files!'
-    })
-    })
 
 module.exports = router
