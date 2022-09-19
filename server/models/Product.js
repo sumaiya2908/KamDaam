@@ -16,7 +16,6 @@ const ProductSchema = new mongoose.Schema({
     },
     category: {
         type: String,
-        enum: ['men', 'women', 'children']
     },
     rating: {
         type: Number,
