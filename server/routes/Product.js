@@ -24,9 +24,10 @@ router.post('/add', isAuth, isAdmin, singleUpload, (req, res) => {
         price: req.body.price || 0,
         quantity: req.body.quantity || 0
     })
-    product.save()
-    .then(() => {
-        res.send('Product created')
+    product.save(function(err, doc) {
+        if (err) res.status(404).send(err.message)
+
+        res.status(200).send(doc)
     })
 })
 
