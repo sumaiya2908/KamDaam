@@ -21,3 +21,16 @@ const productSlice = createSlice({
 export default productSlice.reducer
 
 const {listProducts, singleProduct} = productSlice.actions
+
+export const getProducts = () => async dispatch => {
+    dispatch(loading())
+    try {
+        let {data} = await Axios({url: 'http://localhost:3000/product/all', method: 'get'})
+        dispatch(success())
+        dispatch(listProducts(data))
+
+    }
+    catch(err) {
+        dispatch(error(err.message))
+    }
+}
