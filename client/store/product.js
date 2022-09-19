@@ -47,3 +47,15 @@ export const addProduct = () => async dispatch => {
         dispatch(error(err.message))
     }
 }
+
+export const getProduct = ({product}) => async dispatch => {
+    dispatch(loading())
+    try {
+        const {data} = Axios({url: `http://localhost:3000/product/${product}`, method: 'GET'})
+        dispatch(success())
+        dispatch(singleProduct(data))
+    }
+    catch(err) {
+        dispatch(error(err.message))
+    }
+}
