@@ -14,10 +14,15 @@ router.get('/all', (req, res) => {
     })
 })
 
-router.post('/add', (req, res) => {
+router.post('/add', isAuth, isAdmin, singleUpload, (req, res) => {
     const product = new Product({
         name: req.body.name,
-        description: req.body.description,
+        description: req.body.description || '',
+        imageUrl: req.file.location,
+        brand: req.body.brand || '',
+        category: req.body.category || '',
+        price: req.body.price || 0,
+        quantity: req.body.quantity || 0
     })
     product.save()
     .then(() => {
