@@ -39,7 +39,7 @@ router.post('/add', isAuth, isAdmin, singleUpload, (req, res) => {
     })
 })
 
-router.put('/edit/:id', (req, res) => {
+router.put('/edit/:id', isAuth, isAuth, (req, res) => {
     Product.findByIdAndUpdate(req.params.id, req.body.product, (err, doc) => {
         if (err) res.send(err, 'Product cannot be updated')
 
@@ -47,7 +47,7 @@ router.put('/edit/:id', (req, res) => {
     })
 })
 
-router.delete('/delete/:id', (req, res) => {
+router.delete('/delete/:id', isAuth, isAdmin, (req, res) => {
     Product.findByIdAndDelete(req.params.id, (err, doc) => {
         if (err) res.send('Product cannot be deleted')
 
