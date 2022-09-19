@@ -14,6 +14,14 @@ router.get('/all', (req, res) => {
     })
 })
 
+router.get("/:id", (req, res) => {
+    Product.findById(req.params.id, (err, doc) => {
+        if (err) res.send("Error loading product")
+
+        res.send(doc)
+    })
+})
+
 router.post('/add', isAuth, isAdmin, singleUpload, (req, res) => {
     const product = new Product({
         name: req.body.name,
