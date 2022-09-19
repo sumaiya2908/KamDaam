@@ -4,6 +4,8 @@ const multer = require('multer')
 const Product = require('../models/Product');
 
 const upload = require('../utils/upload')
+const { isAdmin, isAuth } = require('../utils/auth')
+
 const singleUpload = upload.single('image')
 
 router.get('/all', (req, res) => {
