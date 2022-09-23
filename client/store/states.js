@@ -5,7 +5,7 @@ const stateSlice = createSlice({
     initialState: {
         loading: false,
         error: '',
-        success: true
+        success: false
     },
     reducers: {
         loading: (state, action) => {
