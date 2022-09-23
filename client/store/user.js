@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import Axios from 'axios';
 
 import { loading, error, success } from './states'
+import config from "../src/config";
 
 const initialUser = localStorage.getItem('user')
     ? localStorage.getItem('user')
@@ -14,7 +15,7 @@ const userSlice = createSlice({
         userInfo: initialUser,
     },
     reducers: {
-        loginSucess: (state, action) => {
+        loginSuccess: (state, action) => {
             state.userInfo = action.payload
             localStorage.setItem('user', action.payload);
         },
@@ -40,6 +41,7 @@ export const login = ({ email, password }) => async dispatch => {
         dispatch(loginSuccess(data.token))
     }
     catch (err) {
+        console.log(err)
         dispatch(error(err.message))
     }
 }
@@ -61,7 +63,6 @@ export const signin = ({ email, password, name }) => async dispatch => {
 
 export const userList = () => async dispatch => {
     try {
-        const config = { headers: { Authorization: `Bearer ${localStorage.getItem('user')}` } }
         let { data } = await Axios.get("http://localhost:3000/user/all",
             config
         );
@@ -69,5 +70,6 @@ export const userList = () => async dispatch => {
     }
     catch (err) {
         dispatch(error(err.message))
+        console.log(err)
     }
 }
