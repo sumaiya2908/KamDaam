@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { loading, error, success } from './states'
 import config from '../src/config'
 
 const productSlice = createSlice({
