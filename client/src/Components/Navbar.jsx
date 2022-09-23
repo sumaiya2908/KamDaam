@@ -9,12 +9,12 @@ import {
 
 function Navbar() {
 	return (
-		<div className="nav-container bg-white border-b-2">
-		<div className="navbar flex justify-evenly container">
-			<div className="logo">
+		<div className="nav-container bg-white border ">
+		<div className="navbar flex container w-100">
+			<Link to="/"> <div className="logo">
 				<Logo />
-			</div>
-			<div className="search-bar w-2/3 text-center">
+			</div></Link>
+			<div className="search-bar md:w-5/6 text-center">
 				<input type="text" className="input-search-box" placeholder="Search...." />
 			</div>
 			<div className="nav-items flex">
