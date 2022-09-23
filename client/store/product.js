@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import  Axios from "axios";
-import {loading, error, success} from './states'
+import config from '../src/config'
 
 const productSlice = createSlice({
     name: 'product',
