@@ -21,6 +21,7 @@ router.get("/:id", (req, res) => {
 })
 
 router.post('/add', isAuth, isAdmin, singleUpload, (req, res) => {
+    console.log(req.body)
     const product = new Product({
         name: req.body.name,
         description: req.body.description || '',
