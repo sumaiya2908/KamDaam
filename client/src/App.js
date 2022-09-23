@@ -1,11 +1,5 @@
 import React from "react";
-import HomeScreen from "./Screens/HomeScreen";
-import { Route, Routes, BrowserRouter } from 'react-router-dom'
-import Login from "./Screens/Login";
-import Signup from "./Screens/Signup";
-import CartScreen from "./Screens/CartScreen";
-import UserProfile from "./Screens/UserProfile";
-import UserList from "./Admin/UserList";
+import Navbar from "./Components/Navbar";
 
 const App = () => {
     return (
