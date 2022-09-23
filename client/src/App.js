@@ -10,6 +10,7 @@ import UserList from "./Admin/UserList";
 const App = () => {
     return (
         <BrowserRouter>
+            <Navbar />
             <Routes>
                 <Route exact path="/" element={<HomeScreen/>}></Route>
                 <Route path="/login" element={<Login/>}></Route>
